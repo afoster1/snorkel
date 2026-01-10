@@ -1,0 +1,20 @@
+# Snorkel Obsidian Plugin
+
+# Logs
+main.js
+main.js.map
+*.log
+
+# Npm
+node_modules
+
+# Don't include sourcemaps
+*.map.map
+
+# OS
+.DS_Store
+
+# Editor tags
+tags
+tags.*
+TAGS
