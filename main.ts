@@ -69,11 +69,11 @@ export default class SnorkelPlugin extends Plugin {
                         }
 
                         // Create empty file
-                        file = await this.app.vault.create(filePath, '');
+                        const newFile = await this.app.vault.create(filePath, '');
 
                         // Open the file first
                         const leaf = this.app.workspace.getLeaf('tab');
-                        await leaf.openFile(file);
+                        await leaf.openFile(newFile);
 
                         // Apply template using Templater if configured
                         if (this.settings.dailyNoteTemplate) {
@@ -91,24 +91,24 @@ export default class SnorkelPlugin extends Plugin {
 
                                 const templateFile = this.app.vault.getAbstractFileByPath(this.settings.dailyNoteTemplate);
                                 if (templateFile instanceof TFile) {
-                                // Read template content and process it
-                                const content = await this.app.vault.read(templateFile);
-                                await this.app.vault.modify(file, content);
-                                // Trigger Templater to process the file
-                                await templater.templater.overwrite_file_commands(file);
+                                    // Read template content and process it
+                                    const content = await this.app.vault.read(templateFile);
+                                    await this.app.vault.modify(newFile, content);
+                                    // Trigger Templater to process the file
+                                    await templater.templater.overwrite_file_commands(newFile);
                                 } else {
-
                                     new Notice('Template file not found: ' + this.settings.dailyNoteTemplate);
                                 }
                             } else {
-
                                 new Notice('Templater plugin not found');
                             }
                         }
                     } else {
                         // File exists, just open it
                         const leaf = this.app.workspace.getLeaf('tab');
-                        await leaf.openFile(file);
+                        if (file instanceof TFile) {
+                            await leaf.openFile(file);
+                        }
                     }
                 } catch (error) {
                     new Notice('Error creating daily note: ' + error.message);
