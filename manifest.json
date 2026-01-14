@@ -1,9 +1,9 @@
 {
 	"id": "snorkel",
 	"name": "Snorkel",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"minAppVersion": "0.15.0",
-	"description": "Snorkel is an assistant for getting things done.",
+	"description": "Snorkel is an Obsidian plugin assistant for getting things done.",
 	"author": "Andrew Foster",
 	"authorUrl": "https://github.com/afoster1",
 	"isDesktopOnly": false

@@ -1,6 +1,6 @@
 # Snorkel
 
-Snorkel is an assistant for getting things done.
+Snorkel is an Obsidian plugin assistant for getting things done.
 
 ## Development
 
