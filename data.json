@@ -1,0 +1,5 @@
+{
+  "mySetting": "default",
+  "dailyNoteFolder": "Journal/daily",
+  "dailyNoteTemplate": "Assets/templates/dailyTemplate.md"
+}
