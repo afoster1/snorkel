@@ -60,8 +60,7 @@ export default class SnorkelPlugin extends Plugin {
                     const filePath = `${monthFolder}/${fileName}`;
 
                     // Check if file already exists
-                    let file = this.app.vault.getAbstractFileByPath(filePath);
-
+                    const file = this.app.vault.getAbstractFileByPath(filePath);
                     if (!file) {
                         // Ensure folder path exists (including year and month subfolders)
                         if (!this.app.vault.getAbstractFileByPath(monthFolder)) {
